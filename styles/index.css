@@ -99,6 +99,10 @@ button {
 
     border: none;
     border-radius: 5px;
+
+    transition: background-color 250ms;
+
+    cursor: pointer;
 }
 
 .home {
@@ -128,7 +132,8 @@ button {
             justify-content: center;
             gap: 2rem;
 
-            padding-left: var(--page-padding);
+            padding-left: calc(var(--page-padding) + 2rem);
+            padding-bottom: var(--page-padding);
 
             font-size: 2em;
 
@@ -137,6 +142,10 @@ button {
 
             p {
                 font-size: .8em;
+            }
+            button:hover {
+                background-color: white;
+                color: var(--primary);
             }
         }
 
@@ -164,21 +173,25 @@ button {
         display: flex;
         gap: 1rem;
 
-        bottom: 15%;
-        left: var(--page-padding);
+        bottom: 30%;
+        left: calc(var(--page-padding) + 2rem);
 
 
         .counter {
             width: 3rem;
-            border: 2px solid var(--primary);
+            border: 2px solid lightgray;
             border-radius: 2px;
+
+            &[data-selected="true"] {
+                border-color: var(--primary);
+            }
         }
     }
 
     .product-examples {
         position: absolute;
         bottom: 0;
-        transform: translateY(90%);
+        transform: translateY(80%);
 
         width: 100%;
 
@@ -281,22 +294,25 @@ button {
             padding: 3rem;
 
             font-size: 1.8em;
-
+            
             >span {
+                /* color: var(--primary); */
                 font-size: .7em;
                 /* width: 100%; */
 
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                gap: 1rem;
+                gap: .5rem;
 
-                /* padding: .25rem 0; */
+                padding: .25rem .5rem;
 
                 text-wrap: nowrap;
                 font-weight: 300;
 
-                border-radius: 50px;
+                /* border-radius: 50px; */
+
+                border: 1px solid var(--primary);
                 
                 
                 cursor: pointer;
@@ -310,22 +326,6 @@ button {
                     color: white;    
                 }
 
-                i {
-                    height: 100%;
-                    aspect-ratio: 1;
-
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    padding: .30rem;
-
-                    border-radius: 50px;
-
-                    background-color: var(--primary);
-                    color: white;
-
-                }
             }
         }
     }
@@ -366,6 +366,11 @@ button {
 
         button {
             font-size: .8em;
+            border: 1px solid var(--primary);
+            &:hover {
+                background-color: white;
+                color: var(--primary);
+            }
         }
 
     }
@@ -442,12 +447,14 @@ button {
     .product-container {
         position: relative;
         display: flex;
-        width: calc(18rem* 3 + 4rem);
+        width: calc(18rem* 3 + 6rem);
         gap: 2rem;
         overflow-x: auto;
         overflow-y: hidden;
         scroll-behavior: smooth;
         scroll-snap-type: x mandatory;
+
+        padding: 1rem 1rem;
         
         &.dragging {
             scroll-snap-type: none;
@@ -466,14 +473,16 @@ button {
             max-width: 18rem;
             border-radius: 10px;
             flex: 0 0 auto;
-            scroll-snap-align: start;
+            scroll-snap-align: center;
             
-            background-color: bisque;
+            background-color: #eee;
 
             display: flex;
             flex-direction: column;
             
             cursor: grab;
+
+            box-shadow: 0 0 10px rgba(0 0 0 / .5);
 
             &:active {
                 cursor: grabbing;
