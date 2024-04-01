@@ -1,3 +1,17 @@
+const menuOpen = document.querySelector('.hamburger');
+const menu = document.querySelector('.menu');
+menuOpen.addEventListener('click', e => {
+    menu.dataset.open = menu.dataset.open == 'true' ? 'false' : 'true';
+});
+
+document.addEventListener('touchstart', (e) => {
+    if (!menu.contains(e.target) && e.target !== menuOpen) {
+        menu.dataset.open = 'false';
+    }
+});
+
+
+
 let lastScrollTop = 0;
 window.onscroll = function() {
     const header = document.querySelector('header');
