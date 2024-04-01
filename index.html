@@ -7,6 +7,7 @@
 
     <script src="https://kit.fontawesome.com/f8b8bea0a5.js" crossorigin="anonymous"></script>
     <script src="scripts/index.js" defer></script>
+    <script src="scripts/index-animations.js" defer></script>
 
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/index.css">
@@ -19,9 +20,9 @@
             <div class="menu" data-open="false">
                 <ul>
                     <li><a href="">Bosh sahifa</a></li>
-                    <li><a href="">Mahsulotlar</a></li>
-                    <li><a href="">Biz haqimizda</a></li>
-                    <li><a href="">Bog'lanish</a></li>
+                    <li><a href="#about">Biz haqimizda</a></li>
+                    <li><a href="#products">Mahsulotlar</a></li>
+                    <li><a href="#contact">Bog'lanish</a></li>
                 </ul>
             </div>
         </header>
@@ -30,18 +31,22 @@
             <div class="page">
                 <div class="content">
                     <h1>Heavy Duty</h1>
-                    <p>Yuqori sifatli payvandlash elektrodlari ishlab chiqarish</p>
+                    <p class="subtitle"><span>Yuqori sifatli</span> payvandlash elektrodlari ishlab chiqaramiz</p>
                     <button>Batafsil</button>
                 </div>
                 <div class="image-container">
                     <div class="blur"></div>
-                    <img src="media/company-image.png" alt="Company image">
+                    <div class="wrapper">
+                        <img data-active="true" src="media/home-image.png" alt="Company image">
+                        <img data-active="false" src="media/home-image2.png" alt="Company image">
+                        <img data-active="false" src="media/home-image3.png" alt="Company image">
+                    </div>
                 </div>
             </div>
             <div class="counters">
-                <div class="counter" data-selected="true"></div>
-                <div class="counter" data-selected="false"></div>
-                <div class="counter" data-selected="false"></div>
+                <div class="counter" data-active="true"></div>
+                <div class="counter" data-active="false"></div>
+                <div class="counter" data-active="false"></div>
             </div>
 
             <div class="product-examples">
@@ -57,7 +62,7 @@
                     </div>
                 </div>
                 <div class="product">
-                    <img src="media/product-image2.png" draggable="false" alt="">
+                    <img src="media/product-image.webp" draggable="false" alt="">
                     <div class="content">
                         <p>Rutil kukunli konsentrat</p>
                         <div class="link">Buyurtma berish</div>
@@ -66,7 +71,7 @@
             </div>
         </section>
 
-        <section class="about">
+        <section class="about" id="about">
             <div class="image-container">
                 <div class="blur"></div>
                 <img src="media/about-image.png" alt="About" class="about-image">
@@ -79,7 +84,7 @@
             </div>
         </section>
 
-        <section class="products">
+        <section class="products" id="products">
             <div class="crousel-control">
                 <div id="left" class="prev"><i class="fa-solid fa-angle-left"></i></div>
                 <div id="rigth" class="next"><i class="fa-solid fa-angle-right"></i></div>
@@ -100,19 +105,19 @@
                         <h2>ATOM MP3 payvandlash elektrodlari</h2>
                         <p>Turli xil mexanizatsiyalashgan payvandlash usullari keng qo‘llanilishiga qaramasdan, juda ko‘p payvandlash konstruksiyalar qo‘lda qilinadigan elektr yoyi payvandlash usulida tayyorlanadi</p>
     
-                        <button>PDF Yuklab olish</button>
+                        <button>Batafsil</button>
                     </div>
 
                 </div>
                 <div class="product">
                     <div class="image">
-                        <img src="media/product-image2.png" draggable="false" alt="Product">
+                        <img src="media/product-image.webp" draggable="false" alt="Product">
                     </div>
                     <div class="content">
                         <h2>Rutil kukunli konsentrat</h2>
                         <p>Yarim tayyor ushbu mahsulotdan titan, payvandlash elektrodlari va flyus, pigmentlar, dioksidlar, olovga chidamli keramik mahsulotlarini ishlab chiqarishda foydalaniladi.</p>
     
-                        <button>PDF Yuklab olish</button>
+                        <button>Batafsil</button>
                     </div>
 
                 </div>
@@ -124,14 +129,14 @@
                         <h2>ATOM UONI payvandlash elektrodlari</h2>
                         <p>Turli xil mexanizatsiyalashgan payvandlash usullari keng qo‘llanilishiga qaramasdan, juda ko‘p payvandlash konstruksiyalar qo‘lda qilinadigan elektr yoyi payvandlash usulida tayyorlanadi</p>
     
-                        <button>PDF Yuklab olish</button>
+                        <button>Batafsil</button>
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <footer>
+        <footer id="contact">
             <div class="meta">
                 <img src="media/logo.svg" alt="Logo" class="logo">
                 <div class="address">

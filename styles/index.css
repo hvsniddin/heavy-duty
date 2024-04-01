@@ -147,8 +147,33 @@ button {
             color: white;
 
 
+            transform: translateX(-50%);
+            opacity: 0;
+
+            animation: fade-in-side 700ms ease-out forwards;
+
+
             p {
                 font-size: .8em;
+
+                span {
+                    color: var(--primary);
+                    /* text-decoration: underline; */
+                    font-weight: 600;
+
+
+                    &::after {
+                        content: '';
+                        /* border: 6px solid var(--primary); */
+                        display: inline-block;
+                        height: 40%;
+                        width: 5px;
+                        margin-left: 3px;
+                        background-color: var(--primary);
+
+                        animation: cursor 1s linear infinite;
+                    }
+                }
             }
             button:hover {
                 background-color: white;
@@ -159,17 +184,30 @@ button {
         .image-container {
             width: 80%;
             position: relative;
+
+            .wrapper {
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
+
+                scroll-behavior: smooth;
+            }
             .blur {
                 position: absolute;
                 width: 100%;
                 height: 100%;
-                background: linear-gradient(to right, black, transparent);
+                background: linear-gradient(to right, black 5%, transparent);
+                z-index: 10;
             }
 
             img {
                 height: 100%;
                 width: 100%;
                 object-fit: cover;
+                flex-shrink: 0;
+                /* opacity: 0;
+                animation: fade-in 700ms ease-out forwards; */
+
             }
         }
     }
@@ -183,13 +221,18 @@ button {
         bottom: 30%;
         left: calc(var(--page-padding) + 2rem);
 
+        /* transform: translateX(-50%); */
+        opacity: 0;
+
+        animation: fade-in 700ms 700ms ease-out forwards;
+
 
         .counter {
             width: 3rem;
-            border: 2px solid lightgray;
+            border: 2px solid white;
             border-radius: 2px;
 
-            &[data-selected="true"] {
+            &[data-active="true"] {
                 border-color: var(--primary);
             }
         }
@@ -214,8 +257,8 @@ button {
             /* width: 100%; */
             background-color: white;
 
-            animation: shadow linear forwards;
-            animation-timeline: view(200px 300px);
+            /* animation: shadow linear forwards;
+            animation-timeline: view(200px 300px); */
             /* animation-range-start: 100px;
             animation-range-end: 10px; */
             
@@ -230,6 +273,8 @@ button {
         
         .product {
             position: relative;
+            max-height: 16rem;
+            overflow: hidden;
             
             &:hover .content {
                 opacity: 1;
@@ -300,7 +345,7 @@ button {
 
             padding: 3rem;
 
-            font-size: 1.8em;
+            font-size: 1.6em;
             
             >span {
                 /* color: var(--primary); */
@@ -312,7 +357,8 @@ button {
                 justify-content: space-between;
                 gap: .5rem;
 
-                padding: .25rem .5rem;
+                padding: .5rem 1rem;
+                border-radius: 5px;
 
                 text-wrap: nowrap;
                 font-weight: 300;
@@ -326,7 +372,7 @@ button {
                 transition: background-color 250ms, color 250ms;
                 /* border: 2px solid var(--primary); */
                 
-                padding-right: 2rem;
+                /* padding-right: 2rem; */
                 
                 &:hover {
                     background-color: var(--primary);
@@ -347,24 +393,20 @@ button {
 
     position: relative;
 
-    &>* {
-        opacity: 0;
-        animation: fade-in-side linear forwards;
-        animation-timeline: view(100% -100%);
-    }
 
     .content {
         width: 100%;
-
+        
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: start;
         gap: 1rem;
-
+        
         font-size: 1.5em;
-
-        transform: translateX(150%);
+        
+        opacity: 0;
+        transform: translateX(20%);
 
         p {
             font-size: .8em;
@@ -385,7 +427,8 @@ button {
     .image-container {
         position: relative;
 
-        transform: translateX(-150%);
+        opacity: 0;
+        transform: translateX(-50%);
 
         .blur {
             position: absolute;
@@ -413,9 +456,10 @@ button {
     position: relative;
 
     opacity: 0;
+    transform: translateY(50%);
 
-    animation: fade-in linear forwards;
-    animation-timeline: view(150% -100%);
+    /* animation: fade-in linear forwards;
+    animation-timeline: view(150% -100%); */
     
     .crousel-control {
         position: absolute;
@@ -478,14 +522,17 @@ button {
         
         .product {
             max-width: 18rem;
+            max-height: 80vh;
             border-radius: 10px;
             flex: 0 0 auto;
             scroll-snap-align: center;
             
             background-color: #eee;
 
-            display: flex;
-            flex-direction: column;
+            /* display: flex; */
+            /* flex-direction: column; */
+            display: grid;
+            grid-template-rows: 35% 1fr;
             
             cursor: grab;
 
@@ -497,7 +544,7 @@ button {
 
             .image {
                 width: 100%;
-                height: 40%;
+                height: 100%;
                 
                 img {
                     width: 100%;
@@ -568,17 +615,17 @@ button {
     .glitter {
         transform: translateX(-100%);
         
-        animation: fade-in-side linear forwards;
-        animation-timeline: view(500px -10%);
+        /* animation: fade-in-side linear forwards;
+        animation-timeline: view(500px -10%); */
     }
     .glitter2 {
         top: -15%;
         left: 100%;
 
-        transform: translateX(-100%) rotateZ(180deg);
+        transform: translateX(100%) rotateZ(180deg);
 
-        animation: fade-in-side-glitter2 linear forwards;
-        animation-timeline: view(500px -10%);
+        /* animation: fade-in-side-glitter2 linear forwards;
+        animation-timeline: view(500px -10%); */
     }
 }
 
@@ -649,12 +696,28 @@ footer {
         box-shadow: 15px 15px 10px rgba(0 0 0 / .25);
     }
 }
+.shadow {
+    animation: shadow 500ms linear forwards;
+}
 
 @keyframes fade-in-side {
     to {
         transform: translateX(0);
         opacity: 1;
     }
+}
+.fade-in-side {
+    animation: fade-in-side 500ms linear forwards;
+}
+
+@keyframes fade-out-left {
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+.fade-out-left {
+    animation: fade-out-left 500ms linear;
 }
 
 @keyframes fade-in-side-glitter2 {
@@ -666,17 +729,49 @@ footer {
         opacity: 1;
     }
 }
+.fade-in-side-glitter2 {
+    /* animation: fade-in-side 500ms linear forwards; */
+    animation: fade-in-side-glitter2 500ms linear forwards;
+}
+
+@keyframes fade-in-top {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fade-in-top {
+    animation: fade-in-top 500ms linear forwards;
+}
 
 @keyframes fade-in {
     to {
         opacity: 1;
     }
 }
+@keyframes cursor {
+    from {
+        opacity: 0;
+    }
+    49% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 
 @media (width < 600px) {
     .wrapper {
         --page-padding: 2rem;
     }
+
     header {
         color: white;
         padding-block: 1rem;
@@ -727,6 +822,12 @@ footer {
                 width: 100%;
                 padding-inline: calc(var(--page-padding));
                 z-index: 2;
+
+                p {
+                    span::after {
+                        height: 30%;
+                    }
+                }
             }
 
             
@@ -737,6 +838,9 @@ footer {
                 
                 img {
                     filter: brightness(.3);
+                }
+                .blur {
+                    display: none;
                 }
             }
         }
