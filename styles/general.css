@@ -17,3 +17,7 @@ body {
     width: 100vw;
     overflow-x: hidden;
 }
+
+.hamburger {
+    display: none;
+}
