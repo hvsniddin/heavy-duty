@@ -21,3 +21,155 @@ body {
 .hamburger {
     display: none;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
+section {
+    height: 100vh;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+button {
+    padding: 1rem 2rem;
+
+    font-size: .5em;
+    font-weight: 600;
+
+    background-color: var(--primary);
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    text-wrap: nowrap;
+
+    transition: background-color 250ms;
+
+    cursor: pointer;
+}
+
+header {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+
+    width: 100vw;
+    height: 4rem;
+
+    padding: 0 4rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: transparent;
+
+    transition: background-color 250ms, transform 250ms;
+}
+header.scrolled {
+    background-color: var(--primary);
+}
+header.hidden {
+    transform: translateY(-100%);
+}
+
+header ul {
+    display: flex;
+    gap: 3rem;
+
+    font-weight: 600;
+
+    list-style: none;
+}
+
+header ul li::after {
+    content: '';
+    /* width: 20%; */
+
+    scale: 0 1;
+    transform-origin: left;
+
+    display: block;
+
+    margin-top: .25rem;
+
+    border: 1px solid white;
+    transition: scale 250ms;
+}
+
+header ul li:hover::after {
+    scale: 1 1;
+}
+
+header ul li:first-child::after {
+    content: '';
+    /* width: 100%; */
+
+    scale: 1 1;
+
+    display: block;
+
+    margin-top: .25rem;
+
+    border: 1px solid white;
+}
+    
+header img {
+    max-height: 70%;
+}
+
+footer {
+    background-color: var(--primary);
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 10px;
+
+    color: white;
+}
+footer .meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    padding: 2rem;
+}
+footer .meta > *:not(img) {
+    width: 100%;
+
+    display: flex;
+    gap: 1rem;
+}
+footer .meta div div {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-left: auto;
+}
+footer .meta div a {
+    text-decoration: underline;
+}
+footer .meta i {
+    width: 10%;
+}
+footer .meta>p {
+    margin-top: auto;
+    font-size: .8em;
+}
+
+footer img {
+    width: 30%;
+}
+
+footer .location {
+    height: 30rem;
+    width: 50%;
+    background-color: white;
+    border: none;
+}
