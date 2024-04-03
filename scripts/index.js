@@ -89,8 +89,8 @@ const infiniteScroll = () => {
         carousel.classList.remove('no-transition')
     }
 
-    clearInterval(autoScrollId);
-    if (!carousel.matches(':hover')) autoScroll();
+    // clearInterval(autoScrollId);
+    // if (!carousel.matches(':hover')) autoScroll();
 
 }
 

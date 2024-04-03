@@ -59,7 +59,6 @@ const changeText = (ind) => {
     // textElem.textContent = texts[i];
     const currText = textElem.textContent;
     const newText = texts[ind];
-    console.log(newText);
     let i = currText.length;
 
     let removeInterval = setInterval(() => {
@@ -90,7 +89,9 @@ homePageChanger = setInterval(() => {
         imagesContainer.scrollLeft=0;
 
         counters[currPage].dataset.active = 'false';
-        currPage=0;
+        if (currPage==2) {
+            currPage = 0;
+        }
         counters[currPage].dataset.active = 'true';
 
         changeText(currPage);
