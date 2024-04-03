@@ -133,7 +133,26 @@ header img {
     animation: cursor 1s linear infinite;
 }
 
-.home .page .content button:hover {
+.home .page .content a {
+    padding: 1rem 2rem;
+
+    font-size: .5em;
+    font-weight: 600;
+
+    background-color: var(--primary);
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    text-wrap: nowrap;
+
+    transition: background-color 250ms;
+
+    cursor: pointer;
+}
+
+.home .page .content a:hover {
     background-color: white;
     color: var(--primary);
 }
@@ -332,17 +351,28 @@ header img {
     transform: translateX(20%);
 }
 .about .content p {
-    font-size: .8em;
+    font-size: .8rem;
     font-style: italic;
 }
 
-.about .content button {
+.about .content a {
     font-size: .8em;
     border: 1px solid var(--primary);
-}
-.about .content button:hover {
-    background-color: white;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    border-radius: 5px;
+
+    text-wrap: nowrap;
+
+    transition: background-color 250ms;
+
+    cursor: pointer;
     color: var(--primary);
+}
+
+.about .content a:hover {
+    color: white;
+    background-color: var(--primary);
 }
 
 .about .image-container {
